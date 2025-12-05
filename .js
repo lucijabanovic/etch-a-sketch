@@ -1,10 +1,12 @@
 let container = document.querySelector("#container");
 let styles = getComputedStyle(container);
 
-let numPixels = 50;
+let numPixels = 100;
 
 let canvasSize = parseInt(styles.width);
 let pixelSize = canvasSize / numPixels;
+
+let isMouseDown = false;
 
 for (let i = 0; i < numPixels; i++) {
     let subContainer = document.createElement("div");
@@ -16,8 +18,24 @@ for (let i = 0; i < numPixels; i++) {
         let pixel = document.createElement("div");
         pixel.style.width = `${pixelSize}px`;
         pixel.style.width = `${pixelSize}px`;
-        pixel.style.border = '1px solid red';
+        // pixel.style.border = '1px solid red';
         subContainer.appendChild(pixel);
+
+        pixel.addEventListener("mousedown", () => {
+            pixel.style.backgroundColor = 'red';
+            isMouseDown = true;
+        });
+
+        pixel.addEventListener("mouseup", () => {
+            isMouseDown = false;
+        });
+
+        pixel.addEventListener("mouseover", () => {
+            if (isMouseDown) {
+                pixel.style.backgroundColor = 'red';
+            }
+        });
+
     }
 }
 
