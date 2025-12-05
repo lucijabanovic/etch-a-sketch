@@ -35,7 +35,6 @@ for (let i = 0; i < numPixels; i++) {
                 pixel.style.backgroundColor = 'red';
             }
         });
-
     }
 }
 

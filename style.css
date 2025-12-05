@@ -1,13 +1,51 @@
+* {
+    /* border: 1px solid red; */
+}
+
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Playwrite';
+    src: url('./fonts/PlaywriteNO-Regular.ttf');
+}
+
+#title {
+    margin-top: 65px;
+    font-family: 'Playwrite';
+    font-size: 40px;
+}
+
+#wrapper {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+#border {
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    border: 2px solid orange;
+    border-radius: 15px;
+    background-color: peachpuff;
+    z-index: 0;
 }
 
 #container {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
     height: 500px;
     width: 500px;
-    border: 1px solid red;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    border: 2px solid orange;
 }
