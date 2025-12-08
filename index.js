@@ -16,7 +16,7 @@ let isDarken = false;
 let isErase = false;
 let prevNode = null;
 
-function drawGrid(numPixels, isRainbow, isDarken) {
+function drawGrid(numPixels) {
 
     let pixelSize = canvasSize / numPixels;
     let isMouseDown = false;
@@ -81,18 +81,18 @@ function clear() {
     }
 }
 
-drawGrid(numPixels, isRainbow, isDarken);
+drawGrid(numPixels);
 
 slider.addEventListener("input", () => {
     sliderText.textContent = `${slider.value}x${slider.value}`;
     numPixels = slider.value;
     clear();
-    drawGrid(numPixels, isRainbow, isDarken);
+    drawGrid(numPixels);
 });
 
 clearBtn.addEventListener("click", () => {
     clear();
-    drawGrid(numPixels, isRainbow, isDarken);
+    drawGrid(numPixels);
 });
 
 erase.addEventListener("click", () => {
@@ -100,7 +100,14 @@ erase.addEventListener("click", () => {
         erase.classList.remove("active");
         if (prevNode != null) {
             prevNode.classList.add("active");
+            if (prevNode.getAttribute("id") == "rainbow") {
+                isRainbow = true;
+            }
+            if (prevNode.getAttribute("id") == "darken") {
+                isDarken = true;
+            }
         }
+
         isErase = false;
     } else {
         buttons.forEach((btn) => {
@@ -144,7 +151,7 @@ buttons.forEach(function(node) {
             }
 
             clear();
-            drawGrid(numPixels, isRainbow, isDarken);
+            drawGrid(numPixels);
 
         });
     }   
