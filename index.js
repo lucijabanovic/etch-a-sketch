@@ -38,6 +38,7 @@ function drawGrid(numPixels) {
             pixel.addEventListener("mousedown", () => {
                 if (isErase) {
                     pixel.style.backgroundColor = 'white';
+                    darkStep = 0.1;
                 } else if (isRainbow) {
                     pixel.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
                 } else if (isDarken) {
@@ -59,6 +60,7 @@ function drawGrid(numPixels) {
                 if (isMouseDown) {
                     if (isErase) {
                         pixel.style.backgroundColor = 'white';
+                        darkStep = 0.1;
                     } else if (isRainbow) {
                         pixel.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
                     } else if (isDarken) {
